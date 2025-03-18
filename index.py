@@ -18,7 +18,7 @@ class listarefa:
     def conc_tarefa(self,indice):
         if 0 < indice <= len(self.tarefas):
             self.tarefas[indice - 1]["status"]="Concluída"
-            print(f"Tarefa{self.tarefas[indice - 1]['tarefas']} concluída com sucesso!")
+            print(f"Tarefa {self.tarefas[indice - 1]['status']} concluída com sucesso!")
 
 
 
