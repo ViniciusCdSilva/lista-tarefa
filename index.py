@@ -19,7 +19,13 @@ class listarefa:
         if 0 < indice <= len(self.tarefas):
             self.tarefas[indice - 1]["status"]="Concluída"
             print(f"Tarefa {self.tarefas[indice - 1]['status']} concluída com sucesso!")
-
+    
+    def remover_tarefa(self,indice):
+        if 0 < indice <= len(self.tarefas):
+            taref_removida = self.tarefas.pop(indice -1)
+            print(f"Tarefa {taref_removida['tarefa']}  removida com sucesso!")
+        else:
+            print("Digite um numero valido ")
 
 
 
@@ -34,10 +40,10 @@ def menu():
         print("\n 4. Remover tarefa")
         print("\n 5. Sair")
 
-        opcao = input("Escolha uma opção :")
+        opcao = input("\n Escolha uma opção :")
 
         if opcao == "1":
-            tarefa = input("Digite a sua tarefa")
+            tarefa = input("\n Digite a sua tarefa: ")
             lista.add_tarefas(tarefa)
             print ("\n Adicionar tarefa ")
 
@@ -46,10 +52,25 @@ def menu():
 
         elif opcao=="3":
             try:
-                indice =int(input("Digite o numero de tarefas que desja concluir: "))
+                indice =int(input(" \n Digite o numero de tarefas que desja concluir: "))
                 lista.conc_tarefa(indice)
             except ValueError:
-                print("Digite um numero valido ")       
+                print("\n Digite um numero valido ")   
+
+        elif  opcao =="4":
+            try:
+                indice =int(input("Digite o número da tarefa que deseja remover "))
+                lista.remover_tarefa(indice)
+            except ValueError:
+                print("\nDigite um numero valido ")
         
-menu()        
+        elif opcao =="5":
+            print("\n Saindo...")
+            break
+        
+        else:
+            print("\n Invalido, digite uma opção valida")
+
+if __name__ == 'main':
+  menu()        
         
